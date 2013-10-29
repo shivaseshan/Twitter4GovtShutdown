@@ -26,9 +26,13 @@ Location = {'Location'};
  getDataset(S_Mat);
 
 % getting the subsequent older tweets
- S = tw.search('obama', 'count','5', 'lang','en', 'count','100', 'max_id',max_id);
- S_Mat = cell2mat(S);
- getDataset(S_Mat);
+for i = 1:10
+    display(i);
+    S = tw.search('obama', 'count','1', 'lang','en', 'count','100', 'max_id',max_id);
+    S_Mat = cell2mat(S);
+    max_id = S_Mat.search_metadata.max_id_str;
+    getDataset(S_Mat);
+end
  
  Data = [Data, ID, Date, Retweet, Favorite, Retweeted, Favorited, ResultType, Source, UserID, UserName, Verified, Location];
  

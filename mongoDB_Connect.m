@@ -18,3 +18,4 @@ doc.put('info', info);
 %}
 coll.insert(doc,WriteConcern);
 coll.find();
+%show collections;
